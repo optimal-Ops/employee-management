@@ -1,0 +1,83 @@
+<div class="container py-5">
+    <!-- Employees Section -->
+    <div class="card shadow p-4">
+        <h2 class="text-center mb-4">Employee</h2>
+
+        <!-- Employee Form -->
+        <form id="employeeForm" class="mb-4">
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="employeeName" class="form-label">Employee Name</label>
+                    <input type="text" class="form-control" id="employeeName" placeholder="Enter employee name" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="contactNo" class="form-label">Contact No</label>
+                    <input type="text" class="form-control" id="contactNo" placeholder="Enter contact number" required>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-6">
+                    <label for="emailId" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="emailId" placeholder="Enter email" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="deptId" class="form-label">Department</label>
+                    <select id="deptId" class="form-select" required>
+                        <option value="" selected disabled>Select department</option>
+                        <option value="HR">HR</option>
+                        <option value="IT">IT</option>
+                        <option value="Finance">Finance</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-6">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" placeholder="Enter password" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="role" class="form-label">Role</label>
+                    <input type="text" class="form-control" id="role" placeholder="Enter role" required>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-6">
+                    <label for="gender" class="form-label">Gender</label>
+                    <select id="gender" class="form-select" required>
+                        <option value="" selected disabled>Select gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary mt-4 w-100">Add Employee</button>
+        </form>
+    </div>
+
+    <!-- Employee Table -->
+    <div class="card shadow p-4 mt-5">
+        <h3 class="text-center">Employee List</h3>
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Employee ID</th>
+                        <th>Name</th>
+                        <th>Contact No</th>
+                        <th>Email</th>
+                        <th>Department</th>
+                        <th>Role</th>
+                        <th>Gender</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="employeeTableBody">
+                    <!-- Employee rows will be added here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+

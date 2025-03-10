@@ -1,0 +1,44 @@
+<div class="parent">
+  <div class="container-fluid">
+    <!-- Login Form -->
+    <div class="login-container" id="login-container">
+      <div class="alert alert-danger" id="error-message" role="alert" >
+        Invalid username or password!
+      </div>
+      <div class="login-form">
+        <h2>Login</h2>
+        <form id="login-form" (ngSubmit)="onLogin()">
+          <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input
+              type="text"
+              class="form-control"
+              id="username"
+              placeholder="Enter your username"
+              [(ngModel)]="loginObj.username"
+              name="username"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              placeholder="Enter your password"
+              [(ngModel)]="loginObj.password"
+              name="password"
+              required
+            />
+          </div>
+          <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="remember-me" />
+            <label class="form-check-label" for="remember-me">Remember me</label>
+          </div>
+          <button type="submit" class="btn btn-primary btn-custom">Login</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
