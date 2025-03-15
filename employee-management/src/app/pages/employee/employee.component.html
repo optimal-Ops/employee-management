@@ -8,36 +8,45 @@
             <div class="row">
                 <div class="col-md-6">
                     <label for="employeeName" class="form-label">Employee Name</label>
-                    <input type="text" class="form-control" id="employeeName" placeholder="Enter employee name" required>
+                    <input type="text" class="form-control" id="employeeName" name="employeeName" [(ngModel)]="employeeObj.employeeName" placeholder="Enter employee name" required>
                 </div>
                 <div class="col-md-6">
                     <label for="contactNo" class="form-label">Contact No</label>
-                    <input type="text" class="form-control" id="contactNo" placeholder="Enter contact number" required>
+                    <input type="text" class="form-control" id="contactNo" name="contactNo"  [(ngModel)]="employeeObj.contactNo" placeholder="Enter contact number" required>
                 </div>
             </div>
             <div class="row mt-3">
                 <div class="col-md-6">
                     <label for="emailId" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="emailId" placeholder="Enter email" required>
+                    <input type="email" class="form-control" id="emailId" name="emailId" [(ngModel)]="employeeObj.emailId" placeholder="Enter email" required>
                 </div>
-                <div class="col-md-6">
-                    <label for="deptId" class="form-label">Department</label>
-                    <select id="deptId" class="form-select" required>
+                <div class="col-md-4">
+                    <label for="deptId" class="form-label">Parent Department</label>
+                    <select id="deptId" class="form-select" name="parentDeptId"  [(ngModel)]="parentDeptId" (change)="onParentDeptChange()" required>
                         <option value="" selected disabled>Select department</option>
-                        <option value="HR">HR</option>
-                        <option value="IT">IT</option>
-                        <option value="Finance">Finance</option>
+                       @for(item of parentDeptList(); track $index){
+                        <option [value]="item.departmentId">{{item.departmentName}}</option>
+                       }
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label for="deptId" class="form-label">Child Department</label>
+                    <select id="deptId" class="form-select" name="childDeptId" required>
+                        <option value="" selected disabled>Select department</option>
+                        @for (item of childDeptList(); track $index) {
+                            <option [value]="item.childDeptId">{{item.departmentName}}</option>
+                        }
                     </select>
                 </div>
             </div>
             <div class="row mt-3">
                 <div class="col-md-6">
                     <label for="password" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="password" placeholder="Enter password" required>
+                    <input type="password" class="form-control" id="password"  name="password"   [(ngModel)]="employeeObj.password" placeholder="Enter password" required>
                 </div>
                 <div class="col-md-6">
                     <label for="role" class="form-label">Role</label>
-                    <input type="text" class="form-control" id="role" placeholder="Enter role" required>
+                    <input type="text" class="form-control" id="role"  name="role" [(ngModel)]="employeeObj.role" placeholder="Enter role" required>
                 </div>
             </div>
             <div class="row mt-3">
@@ -51,7 +60,7 @@
                     </select>
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary mt-4 w-100">Add Employee</button>
+            <button type="submit" class="btn btn-primary mt-4 w-100" (click)="onSave()">Add Employee</button>
         </form>
     </div>
 
